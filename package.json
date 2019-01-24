@@ -1,10 +1,13 @@
 {
   "name": "gabriel-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "QA tool for reporting detailed issues to developers",
   "main": "index.js",
   "author": "Marc Horne",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
