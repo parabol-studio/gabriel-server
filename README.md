@@ -1,6 +1,6 @@
-[![https://nodei.co/npm/gabriel.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/gabriel.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gabriel)
+[![https://nodei.co/npm/gabriel-server.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/gabriel-server.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gabriel-server)
 
-[![Node version](https://img.shields.io/node/v/gabriel.svg?style=flat)](http://nodejs.org/download/)
+[![Node version](https://img.shields.io/node/v/gabriel-server.svg?style=flat)](http://nodejs.org/download/)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
 
