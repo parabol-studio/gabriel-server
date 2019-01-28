@@ -79,9 +79,7 @@ function serve(app) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 
-  app.listen(
-    process.env.GABRIEL_PORT || 8002,
-    () => console.log(`Gabriel running on port ${ process.env.GABRIEL_PORT || 8002 }`)
+  app.listen(8002, () => console.log('Gabriel running on port 8002')
   );
 }
 

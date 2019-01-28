@@ -12,7 +12,7 @@ export class ReportsComponent {
   public selectedReport: Object;
 
   constructor(private http: HttpClient, private router: Router) {
-    const location = window.location.origin.replace('4000', '8085');
+    const location = window.location.origin.replace('4000', '8002');
 
     const headers = {
       headers: new HttpHeaders({

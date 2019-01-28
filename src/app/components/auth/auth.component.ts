@@ -17,8 +17,10 @@ export class AuthComponent {
 
   public authenticate(event) {
     event.preventDefault();
+    
+    const location = window.location.origin.replace('4000', '8002');
 
-    this.http.post('http://localhost:8002/gabriel/auth', { password: this.password }).subscribe(
+    this.http.post(`${ location }/gabriel/auth`, { password: this.password }).subscribe(
       auth => {
         sessionStorage.setItem('gabriel-session', JSON.stringify(auth));
         this.router.navigate(['/gabriel/view']);

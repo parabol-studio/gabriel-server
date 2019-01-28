@@ -36,7 +36,7 @@ This will store your reports in a /reports directory to be used later by the UI.
 
 ### Serve UI
 
-Gabriel has a basic UI which will create a route named `/gabriel/reports` to be used by the application to fetch the reports. It also creates a subdiretory named `/gabriel` which you can navigate to to view your reports. Add these routes to your applcication by including the following line in your Node applicaiton.
+Gabriel has a basic UI which will create a route named `/gabriel/reports` to be used by the application to fetch the reports. It also creates a subdiretory named `/gabriel` which you can navigate to to view your reports. Add these routes to your applcication by including the following line in your Node applicaiton. Gabriel runs on port 8002.
 
 ```
 gabriel.serve(app);
