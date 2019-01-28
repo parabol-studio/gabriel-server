@@ -43,6 +43,14 @@ gabriel.serve(app);
 ```
 
 
+### Configuration
+The application can be configured by creating a `.gabriel.json` file in the root directory of your project.
+
+
+### Configuration options
+- secret (mandatory): Password used for UI authentication
+
+
 ## Run in dev mode
 
 To run in dev mode simply clone the repo, navigate to the directory and run `npm run dev` which will allow you to edit the UI directly with the Angular CLI on port 4000. You can also run `npm run prod` to serve the UI from the Node.js server. This will run Gabriel, including the UI, on your local machine at `localhost:8085`. You will need to supply some sample logs in the `/logs` directory.

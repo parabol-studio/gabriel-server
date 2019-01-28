@@ -3,20 +3,30 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Import custom components
-import { ReportsComponent } from '../components/reports.component';
+import { AuthComponent } from '../components/auth/auth.component';
+import { ReportsComponent } from '../components/reports/reports.component';
+
+// Import resolvers
+import { AuthResolver } from '../resolvers/auth.resolver';
 
 // Define routes
 const routes: Routes = [
+  { path: '', redirectTo: '/gabriel/view', pathMatch: 'full' },
   {
     path: 'gabriel', children: [
       {
         path: '',
-        redirectTo: 'reports',
+        redirectTo: 'view',
         pathMatch: 'full'
       },
       {
-        path: 'reports',
-        component: ReportsComponent
+        path: 'view',
+        component: ReportsComponent,
+        resolve: { auth: AuthResolver }
+      },
+      {
+        path: 'auth',
+        component: AuthComponent
       }
     ]
   }

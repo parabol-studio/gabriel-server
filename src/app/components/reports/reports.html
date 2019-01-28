@@ -40,7 +40,18 @@
 
       <div class="code-block" *ngIf="selectedReport?.console">
         <h2>Console</h2>
-        <ngx-json-viewer [json]="selectedReport.console" [expanded]="false"></ngx-json-viewer>
+
+        <div class="code-block">
+          <div class="log" *ngFor="let log of selectedReport?.console">
+            <ngx-json-viewer *ngIf="checkType(log)" [json]="log" [expanded]="false"></ngx-json-viewer>
+            <p *ngIf="!checkType(log)">{{ log }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block" *ngIf="selectedReport?.client">
+        <h2>Client</h2>
+        <ngx-json-viewer [json]="selectedReport.client" [expanded]="false"></ngx-json-viewer>
       </div>
 
       <div class="code-block" *ngIf="selectedReport?.data">

@@ -4,9 +4,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { NgPipesModule } from 'ngx-pipes';
 
-import { TimeFromPipe } from '../pipes/from.pipe';
+import { TimeFromPipe } from '../../pipes/from.pipe';
 
-import { ReportsComponent } from '../components/reports.component';
+import { ReportsComponent } from '../reports/reports.component';
 
 import {
   ParabolTextModule,

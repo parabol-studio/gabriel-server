@@ -15,16 +15,25 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
+            "extractCss": true,
+            "preserveSymlinks": true,
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src",
+              "src/styles.sass",
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/sass/global-stylesheets"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -81,11 +90,7 @@
   "defaultProject": "gabriel",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
-      "styleext": "sass"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
+      "styleext": "scss"
     }
   }
 }

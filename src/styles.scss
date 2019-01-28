@@ -1,4 +1,7 @@
-@import './assets/sass/global-stylesheets/globals.scss';
+// Import Global stylesheets
+@import './src/assets/sass/global-stylesheets/_globals.scss';
 
-@import './assets/sass/components/app.scss';
-@import './assets/sass/components/reports.scss';
+// Import component stylesheets
+@import './src/app/components/app/app.scss';
+@import './src/app/components/auth/auth.scss';
+@import './src/app/components/reports/reports.scss';

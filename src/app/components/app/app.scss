@@ -5,8 +5,7 @@
       margin: 4em 0 2em;
 
       img {
-        width: 2.7em;
-        height: 2.7em;
+        @include size(2.7em);
         display: inline-block;
         vertical-align: middle;
         margin-right: 1em;

@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const moment = require('moment');
 const express = require('express');
+const bodyParser = require('body-parser');
 const isJSON = require('is-json');
-const app = express();
 
 /****************************************************************************
 * Function init()
@@ -14,7 +14,7 @@ const app = express();
 *****************************************************************************/
 function init() {
   fs.readFile('.gabriel.json', 'utf-8', (err, config) => {
-    if (isJSON(config)) global.gabriel_config = config;
+    if (isJSON(config)) global.gabriel_config = JSON.parse(config);
   });
 
   fs.access('./reports', (err) => (err) ? fs.mkdirSync('./reports') : null);
@@ -44,7 +44,7 @@ function store(app) {
 
   app.post('/gabriel/store', (req, res) => {
     fs.writeFile(`./reports/${ moment().format('x') }.json`, JSON.stringify(req.body), (err) => (err) ? console.log(err) : null);
-    res.status(200).send('OK');
+    res.status(200).send({ body: 'OK' });
   });
 }
 
@@ -58,13 +58,31 @@ function store(app) {
 *****************************************************************************/
 function serve(app) {
   init();
-  
-  app.get('/gabriel/reports', (req, res) => res.status(200).send(global.gabriel_reports));
-  
+
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+  app.get('/gabriel/reports', (req, res) => {
+    if (req.headers.uuid === global.gabriel_session) res.status(200).send(global.gabriel_reports).end();
+    else res.status(401).send().end();
+  });
+
+  app.post('/gabriel/auth', (req, res) => {
+    if (req.body.password === global.gabriel_config.secret) {
+      global.gabriel_session = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      res.status(200).send({ uuid: global.gabriel_session }).end();
+    } else res.status(500).send({ error: 'Password is incorrect' }).end();
+  });
+
   app.get(['/gabriel', '/gabriel/**'], (req, res) => {
     app.use(express.static(__dirname + '/dist'));
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
+
+  app.listen(
+    process.env.GABRIEL_PORT || 8002,
+    () => console.log(`Gabriel running on port ${ process.env.GABRIEL_PORT || 8002 }`)
+  );
 }
 
 

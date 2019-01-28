@@ -65,6 +65,19 @@
       border-radius: 5px;
       margin-top: 1em;
       overflow-x: scroll;
+      
+      .log {
+        margin-bottom: 1em;
+        
+        .segment { margin: 0 }
+        
+        p {
+          font-weight: 500;
+          font-family: monospace;
+          font-size: .95em;
+          color: #4E187C;
+        }
+      }
     }
 
     h2 {
